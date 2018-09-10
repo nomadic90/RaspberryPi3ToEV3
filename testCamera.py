@@ -49,7 +49,7 @@ def cameraTest():
         sys.exit()
 
     try:
-        s.sendto("",(host, port))
+        s.sendto("".encode('utf-8'),(host, port))
     except ConnectionResetError:
         print(
             "Error. Port numbers are not matching. Exiting. Next time please enter same port numbers.")
