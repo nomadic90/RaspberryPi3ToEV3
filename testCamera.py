@@ -4,7 +4,7 @@ import struct
 import time
 import picamera
 import sys
-from websocket import create_connection
+import websocket
 
 def cameraTest():
 
@@ -17,7 +17,10 @@ def cameraTest():
 
     # factory = WebSocketClientFactory("ws://172.30.1.45:8000")
 
-    ws = create_connection("ws://172.30.1.45:8000")
+    # ws = create_connection("ws://172.30.1.45:8000")
+
+    ws = websocket.WebSocket()
+    ws.connect("ws://172.30.1.45:8000")
 
     try:
         with picamera.PiCamera() as camera:
@@ -28,6 +31,8 @@ def cameraTest():
             stream = io.BytesIO()
             print("start steam")
             for foo in camera.capture_continuous(stream, sys.argv[3], use_video_port=True):
+
+
                 # connection.write(struct.pack('<L', stream.tell()))
                 # connection.flush()
                 # stream.seek(0)
@@ -36,13 +41,13 @@ def cameraTest():
 
                 # print(foo)
 
-                if time.time() - start > 2:
+                if time.time() - start > 20:
                     break
 
                 # stream.seek(0)
                 # stream.truncate()
 
-                ws.send(foo)
+                ws.send(stream.read())
 
         # connection.write(struct.pack('<L', 0))
     finally:
