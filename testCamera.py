@@ -13,7 +13,7 @@ def cameraTest():
     client_socket = socket.socket()
     client_socket.connect((sys.argv[1], int(sys.argv[2])))
     connection = client_socket.makefile('wb')
-
+    print(connection)
     try:
         with picamera.PiCamera() as camera:
             camera.resolution = (640, 480)
