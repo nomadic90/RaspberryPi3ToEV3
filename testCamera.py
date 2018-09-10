@@ -21,6 +21,7 @@ def cameraTest():
             start = time.time()
             count = 0
             stream = io.BytesIO()
+            print("start steam")
             for foo in camera.capture_continuous(stream, sys.argv[3], use_video_port=True):
                 connection.write(struct.pack('<L', stream.tell()))
                 connection.flush()
@@ -30,7 +31,7 @@ def cameraTest():
 
                 print(foo)
 
-                if time.time() - start > 30:
+                if time.time() - start > 2:
                     break
 
                 stream.seek(0)
