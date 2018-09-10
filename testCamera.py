@@ -21,7 +21,7 @@ def cameraTest():
             start = time.time()
             count = 0
             stream = io.BytesIO()
-            for foo in camera.capture_continuous(stream, 'jpeg', use_video_port=True):
+            for foo in camera.capture_continuous(stream, sys.argv[3], use_video_port=True):
                 connection.write(struct.pack('<L', stream.tell()))
                 connection.flush()
                 stream.seek(0)
