@@ -4,9 +4,9 @@ import struct
 import time
 import picamera
 
-client_socket = socket.socket()
-client_socket.connect(('http://127.0.0.1', 8000))
-connection = client_socket.makefile('wb')
+# client_socket = socket.socket()
+# client_socket.connect(('http://127.0.0.1', 8000))
+# connection = client_socket.makefile('wb')
 
 try:
     with picamera.PiCamera() as camera:
@@ -16,14 +16,14 @@ try:
         count = 0
         stream = io.BytesIO()
         for foo in camera.capture_continuous(stream, 'jpeg', use_video_port=True):
-            connection.write(struct.pack('<L', stream.tell()))
-            connection.flush()
+            # connection.write(struct.pack('<L', stream.tell()))
+            # connection.flush()
             stream.seek(0)
-            connection.write(stream.read())
+            # connection.write(stream.read())
             count += 1
 
             print(foo)
-            
+
             if time.time() - start > 30:
                 break
 
