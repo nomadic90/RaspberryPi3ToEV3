@@ -8,11 +8,11 @@ import sys
 
 def cameraTest():
 
+    print(sys.argv[1], sys.argv[2])
+
     client_socket = socket.socket()
     client_socket.connect((sys.argv[1], int(sys.argv[2])))
     connection = client_socket.makefile('wb')
-
-    print(sys.argv[1], sys.argv[2])
 
     try:
         with picamera.PiCamera() as camera:
