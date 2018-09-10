@@ -46,7 +46,7 @@ def cameraTest():
         s.settimeout(15)
     except socket.error:
         print("Failed to create socket")
-    sys.exit()
+        sys.exit()
 
     try:
         s.sendto(CommClient, (host, port))
