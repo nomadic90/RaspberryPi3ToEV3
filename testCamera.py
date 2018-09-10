@@ -3,6 +3,7 @@ import socket
 import struct
 import time
 import picamera
+import sys
 
 
 def cameraTest():
