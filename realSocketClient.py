@@ -27,25 +27,26 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(len(splitData))
 
             if len(splitData) != 2:
-                break
+                continue
 
             direction = splitData[0]
             floatData = splitData[1]
             value = float(floatData)
-
-            print(direction, value)
             
-            '''
-            w = EV3.inWaiting()
-            if w != 0:
-                n = EV3.read(w)
-                mail, value, n = EV3BT.decodeMessage(n, EV3BT.MessageType.Numeric)
-                print(mail, value)
-            else:
-                time.sleep(0.1)
+            try:
 
-            if value > 50:
-                movement = EV3BT.encodeMessage(EV3BT.MessageType.Numeric, direction, inputValue)
-                EV3.write(movement)
-            '''
+                w = EV3.inWaiting()
+                if w != 0:
+                    n = EV3.read(w)
+                    mail, value, n = EV3BT.decodeMessage(n, EV3BT.MessageType.Numeric)
+                    print(mail, value)
+                else:
+                    time.sleep(0.1)
+
+                if value > 50:
+                    movement = EV3BT.encodeMessage(EV3BT.MessageType.Numeric, direction, inputValue)
+                    EV3.write(movement)
+            except Exception as e:
+                print("check lego and bluetooth status!")
+                continue
 
