@@ -26,7 +26,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(splitData)
 
             direction = splitData[0]
-            value = float(splitData[1])
+            floatData = splitData[1]
+            value = float(floatData)
 
             print(direction, value)
             
