@@ -18,10 +18,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print('Connected by', addr)
         while True:
             data = conn.recv(1024)
-            # if not data: break
+
             recvData = data.decode()
+            print(recvData)
+
             splitData = recvData.split(",")
             direction = splitData[0]
+
             value = float(splitData[1])
 
             print(direction, value)
