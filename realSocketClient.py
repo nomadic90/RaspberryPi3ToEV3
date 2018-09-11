@@ -28,6 +28,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(len(splitData))
 
             if len(splitData) != 2:
+                time.sleep(0.1)
                 continue
 
             direction = splitData[0]
