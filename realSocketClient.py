@@ -24,6 +24,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
             splitData = recvData.split(",")
             print(splitData)
+            print(len(splitData))
+
+            if len(splitData) != 2:
+                break
 
             direction = splitData[0]
             floatData = splitData[1]
