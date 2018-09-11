@@ -32,7 +32,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
             direction = splitData[0]
             floatData = splitData[1]
-            value = float(floatData)
+            value = int(floatData)
             
             try:
 
