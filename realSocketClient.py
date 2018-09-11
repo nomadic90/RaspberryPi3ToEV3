@@ -22,10 +22,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             recvData = data.decode()
             splitData = recvData.split(",")
             direction = splitData[0]
-            value = int(splitData[1])
+            value = float(splitData[1])
 
             print(direction, value)
-
+            
+            '''
             w = EV3.inWaiting()
             if w != 0:
                 n = EV3.read(w)
@@ -37,4 +38,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if value > 50:
                 movement = EV3BT.encodeMessage(EV3BT.MessageType.Numeric, direction, inputValue)
                 EV3.write(movement)
+            '''
 
