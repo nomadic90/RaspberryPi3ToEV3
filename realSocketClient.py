@@ -38,7 +38,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 
                 direction = splitData[0]
                 inputValue = splitData[1]
-                value = int(floatData)
+                intValue = int(floatData)
 
                 w = EV3.inWaiting()
                 if w != 0:
@@ -47,8 +47,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     print(mail, value)
 
                     if value > 50:
-                        print(direction, inputValue)
-                        movement = EV3BT.encodeMessage(EV3BT.MessageType.Numeric, direction, inputValue)
+                        print(direction, intValue)
+                        movement = EV3BT.encodeMessage(EV3BT.MessageType.Numeric, direction, intValue)
                         EV3.write(movement)
 
                 else:
