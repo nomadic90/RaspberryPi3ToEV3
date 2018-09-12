@@ -47,13 +47,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     print(mail, value)
 
                     if value > 50:
-                    print(direction, inputValue)
-                    movement = EV3BT.encodeMessage(EV3BT.MessageType.Numeric, direction, inputValue)
-                    EV3.write(movement)
+                        print(direction, inputValue)
+                        movement = EV3BT.encodeMessage(EV3BT.MessageType.Numeric, direction, inputValue)
+                        EV3.write(movement)
 
                 else:
                     time.sleep(0.1)
-                    
+
             except Exception as e:
                 print("check lego and bluetooth status!")
                 continue
