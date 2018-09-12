@@ -37,7 +37,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             try:
                 
                 direction = splitData[0]
-                floatData = splitData[1]
+                inputValue = splitData[1]
                 value = int(floatData)
 
                 w = EV3.inWaiting()
