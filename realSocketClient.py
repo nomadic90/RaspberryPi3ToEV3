@@ -26,9 +26,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(splitData)
             print(len(splitData))
 
-            # if len(splitData) != 2:
-            #     time.sleep(0.1)
-            #     continue
+            if len(splitData) != 2:
+                time.sleep(1)
+                continue
             
             try:
                 
