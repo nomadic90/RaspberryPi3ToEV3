@@ -49,7 +49,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     time.sleep(0.1)
 
                 if value > 50:
-                    print(direction inputValue)
+                    print(direction, inputValue)
                     movement = EV3BT.encodeMessage(EV3BT.MessageType.Numeric, direction, inputValue)
                     EV3.write(movement)
             except Exception as e:
