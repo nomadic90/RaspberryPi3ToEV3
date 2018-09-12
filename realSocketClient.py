@@ -12,7 +12,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     # s.setblocking(0)
     s.bind((HOST, PORT))
-    s.listen(1)
+    s.listen()
     conn, addr = s.accept()
 
     with conn:
