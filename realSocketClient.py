@@ -9,7 +9,7 @@ PORT = 50008
 EV3 = serial.Serial('/dev/rfcomm0')
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    # s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     s.bind((HOST, PORT))
     s.listen(1)
     conn, addr = s.accept()
