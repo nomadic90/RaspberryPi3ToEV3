@@ -4,7 +4,7 @@ import time
 import EV3BT
 
 HOST = ''
-PORT = 50008
+PORT = 50010
 
 EV3 = serial.Serial('/dev/rfcomm0')
 
